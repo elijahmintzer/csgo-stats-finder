@@ -1,11 +1,25 @@
+
+async function getUserInfo(){
+    let steamid = document.getElementById('steamidfield').value;
+
+    const user_api_url = `/steamuserapi/${steamid}`;
+    const response = await fetch(user_api_url);
+    const json = await response.json();
+
+    const username = json.response.players[0].personaname;
+
+    document.getElementById('username').textContent = username;
+}
+
 async function getStats(){
+    getUserInfo();
     let steamid = document.getElementById('steamidfield').value;
 
     console.log('getting stats');
     console.log(steamid);
     
-    const api_url = `/steamapi/${steamid}`;
-    const response = await fetch(api_url);
+    const game_api_url = `/steamgameapi/${steamid}`;
+    const response = await fetch(game_api_url);
     const json = await response.json();
     const totalkills = json.playerstats.stats[0].value;
     const totaldeaths = json.playerstats.stats[1].value;
@@ -15,4 +29,3 @@ async function getStats(){
     document.getElementById('totalkills').textContent = totalkills;
     document.getElementById('totaldeaths').textContent = totaldeaths;
 }
-
