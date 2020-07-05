@@ -3,14 +3,20 @@
     <head>
         <meta charset='UTF-8'>
         <title>CSGO-Stats</title>
-        <script src='scripts.js'></script>
     </head>
     <body>
 
         <h1>CSGO-Stats Finder</h1>
 
-        <input type='text' value='SteamID' id='steamidfield'>
+        <input type='text' value='SteamID64' id='steamidfield'>
 
         <button id='submit' onclick='getStats()'>Submit</button>
+
+        <p>
+            Kill-Death Ratio: <span id='kdratio'></span><br>
+            Total Kills: <span id='totalkills'></span><br>
+            Total Deaths: <span id='totaldeaths'></span>
+        </p>
     </body>
+    <script src='scripts.js'></script>
 </html>
