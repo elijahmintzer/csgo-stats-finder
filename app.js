@@ -15,14 +15,6 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
 
-app.post('/api', (request, response) => {
-    const data = request.body;
-    data.timestamp = timestamp;
-    response.json({
-        status: 'success',
-    });
-});
-
 app.get('/steamapi/:steamid', async (request, response) => {
     const steamid = request.params.steamid;
     const api_url = `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2/?appid=730&key=${config.apikey}&steamid=${steamid}`;
