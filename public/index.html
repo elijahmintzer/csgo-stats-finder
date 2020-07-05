@@ -7,10 +7,13 @@
     <body>
 
         <h1>CSGO-Stats Finder</h1>
+        <h2 style='color:red; display:none' id='error-message'>There is an error with your request.</h2>
 
         <input type='text' value='SteamID64' id='steamidfield'>
 
-        <button id='submit' onclick='getStats()'>Submit</button>
+        <button id='submit' onclick='getStats()'>Submit</button><br>
+
+        <img src='' id='avatar'>
 
         <p>
             User: <span id='username'></span><br>
