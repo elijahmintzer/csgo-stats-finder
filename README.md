@@ -1,5 +1,5 @@
-# csgo-stats-finder
-simple csgo stats finder with NodeJS
+# CS:GO Stats Finder
+A simple app that gets CS:GO user stats from steam.
 
 # Goal
 My goal is to make a simple website when you input someone's SteamID, it displays their CSGO Stats.
