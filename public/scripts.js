@@ -13,6 +13,7 @@ async function getUserInfo(){
     try{
         const response = await fetch(user_api_url);
         const json = await response.json();
+        const userdata = json.players;
         const username = json.response.players[0].personaname;
         const avatar = json.response.players[0].avatarfull;
 
@@ -52,11 +53,12 @@ async function getStats(){
         getUserInfo();
         const response = await fetch(game_api_url);
         const json = await response.json();
-        const totalkills = json.playerstats.stats[0].value;
-        const totaldeaths = json.playerstats.stats[1].value;
+        const stats = json.playerstats.stats
+        const totalkills = stats.find(s => s.name === 'total_kills').value;
+        const totaldeaths = stats.find(s => s.name === 'total_deaths').value;
+        const totalwins = stats.find(s => s.name === 'total_matches_won').value;
+        const totalmatchesplayed = stats.find(s => s.name === 'total_matches_played').value;
         const kdratio = totalkills / totaldeaths;
-        const totalwins = json.playerstats.stats[125].value;
-        const totalmatchesplayed = json.playerstats.stats[126].value;
         const totalmatcheslost = totalmatchesplayed - totalwins;
         const winlossratio = totalwins / totalmatcheslost;
         
