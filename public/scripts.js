@@ -19,12 +19,13 @@ async function getUserInfo(){
         document.getElementById('username').textContent = username;
         document.getElementById('avatar').style = 'display:block';
         document.getElementById('avatar').src = avatar;
+        document.getElementById('profilelink').href = SteamIDConverter.profileURL(steamid);
         document.getElementById('error-message').style.display = 'none';
     } catch(err){
         console.log('error')
         document.getElementById('error-message').style.display = 'block';
         document.getElementById('username').textContent = 'ERROR'
-        document.getElementById('avatar').style = 'display:none';
+        document.getElementById('avatar').src = 'https://www.rebornevo.com/uploads/monthly_2019_05/Steam_Question-Mark.thumb.jpg.57b1f0d831926f6e19cd3dcc4d9cd89c.jpg'
         document.getElementById('kdratio').textContent = 'ERROR';
         document.getElementById('totalkills').textContent = 'ERROR';
         document.getElementById('totaldeaths').textContent = 'ERROR';
@@ -57,20 +58,27 @@ async function getStats(){
         const totalwins = json.playerstats.stats[112].value;
         const totalmatchesplayed = json.playerstats.stats[113].value;
         const totalmatcheslost = totalmatchesplayed - totalwins;
+        const winlossratio = totalwins / totalmatcheslost;
         
         document.getElementById('kdratio').textContent = kdratio.toFixed(2);
-        document.getElementById('avatar').src = '';
-        document.getElementById('avatar').style = 'display:block';
         document.getElementById('totalkills').textContent = totalkills;
         document.getElementById('totaldeaths').textContent = totaldeaths;
+        document.getElementById('totalwins').textContent = totalwins;
+        document.getElementById('totallost').textContent = totalmatcheslost;
+        document.getElementById('totalmatchesplayed').textContent = totalmatchesplayed;
+        document.getElementById('winlossratio').textContent = winlossratio.toFixed(2);
         document.getElementById('error-message').style.display = 'none';
+        console.log(json);
     } catch(err){
         console.log('error')
         document.getElementById('error-message').style.display = 'block';
         document.getElementById('username').textContent = 'ERROR'
-        document.getElementById('avatar').style = 'display:none';
         document.getElementById('kdratio').textContent = 'ERROR';
         document.getElementById('totalkills').textContent = 'ERROR';
         document.getElementById('totaldeaths').textContent = 'ERROR';
+        document.getElementById('totalwins').textContent = 'ERROR';
+        document.getElementById('totallost').textContent = 'ERROR';
+        document.getElementById('totalmatchesplayed').textContent = 'ERROR';
+        document.getElementById('winlossratio').textContent = 'ERROR';
     }
 }

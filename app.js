@@ -23,7 +23,7 @@ app.get('/steamgameapi/:steamid', async (request, response) => {
         const json = await fetch_response.json();
         response.json(json);
     } catch {
-        console.log('invalid steamid');
+        
     }
 });
 
@@ -34,7 +34,7 @@ app.get('/steamuserapi/:steamid', async (request, response) => {
         const fetch_response = await fetch(user_api_url);
         const json = await fetch_response.json();
         response.json(json);
-    } catch {
-        console.log('invalid steamid');
+    } catch(err) {
+
     }
 });

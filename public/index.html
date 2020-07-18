@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang ='en'>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <meta charset='UTF-8'>
         <title>CSGO-Stats</title>
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h1>CSGO-Stats Finder</h1>
+                    <h4>Built by <a href="https://github.com/elijahmintzer/">Mintz#8233</a></h4>
+                    <h2 style='color:red; display:none' id='error-message'>There is an error with your request.</h2>
 
-        <h1>CSGO-Stats Finder</h1>
-        <h2 style='color:red; display:none' id='error-message'>There is an error with your request.</h2>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" alt="SteamAvatar" id="avatar" src="https://www.rebornevo.com/uploads/monthly_2019_05/Steam_Question-Mark.thumb.jpg.57b1f0d831926f6e19cd3dcc4d9cd89c.jpg">
+                        <div class="card-body">
+                        <h5 class="card-title">User: <span id="username"></span></h5>
+                        <p class="card-text">User Stats:</p>
+                    </div>
 
-        <input type='text' value='SteamID' id='steamidfield'>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Kill-Death Ratio: <span id="kdratio"></span></li>
+                        <li class="list-group-item">Total Kills: <span id="totalkills"></span></li>
+                        <li class="list-group-item">Total Deaths: <span id="totaldeaths"></span></li>
+                        <li class="list-group-item">Total Wins: <span id="totalwins"></span></li>
+                        <li class="list-group-item">Total Losses: <span id="totallost"></span></li>
+                        <li class="list-group-item">Total Matches Played: <span id="totalmatchesplayed"></span></li>
+                        <li class="list-group-item">Win-Loss Ratio: <span id="winlossratio"></span></li>
+                    </ul>
 
-        <button id='submit' onclick='getStats()'>Submit</button><br>
+                    <div class="card-body">
+                        <a href="#" class="card-link" id="profilelink">User Profile</a>
+                    </div>
+                
+                    </div>
 
-        <img src='' id='avatar'>
+                    <input type='text' value='SteamID' id='steamidfield' maxlength="22">
+      
+                    <button id='submit' onclick='getStats()'>Submit</button>
+                </div>
 
-        <p>
-            User: <span id='username'></span><br>
-            Kill-Death Ratio: <span id='kdratio'></span><br>
-            Total Kills: <span id='totalkills'></span><br>
-            Total Deaths: <span id='totaldeaths'></span>
-        </p>
+                <div class="col-sm">
+                    <h1>Information:</h1>
+                    <div class="jumbotron">
+                        <h3>What is this?</h3>
+                        <p>
+                            This was a simple project developed for the purpose of learning how full-stack apps work.<br>
+                            <br>
+                            With this application, you are able to input a user's SteamID and get their CS:GO stats.<br>
+                        </p>
+                        <h3>What can you use this for?</h3>
+                        <p>
+                            Like I said, you can get user's stats with this simple app.<br>
+                            <br>
+                            The code is completely open-source at <a href="https://github.com/elijahmintzer/csgo-stats-finder">my github repository.</a><br>
+                            <br>
+                            Feel free to take a peek in and look at the code.
+                        </p>
+                        <h3>How did I make this?</h3>
+                        <p>
+                            I made this using Javascript, and NodeJS.<br>
+                            <br>
+                            I used ExpressJS for the server and clientside Javascript for inputting the stats to the user.<br>
+                            <br>
+                            I then used <a href="https://steamcommunity.com/dev">Steam's API</a> to fetch the stats from Steam.
+                        </p>
+                        <h3>What else do I intend to do with this?</h3>
+                        <p>
+                            I don't plan to do anything else with this project, the goal has been fulfilled.<br>
+                            <br>
+                            This project was only for learning purposes and nothing else.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script src='scripts.js'></script>
 
     <script src="BigInteger.min.js"></script>
     <script src="converter-min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </html>
