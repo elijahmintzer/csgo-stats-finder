@@ -55,8 +55,8 @@ async function getStats(){
         const totalkills = json.playerstats.stats[0].value;
         const totaldeaths = json.playerstats.stats[1].value;
         const kdratio = totalkills / totaldeaths;
-        const totalwins = json.playerstats.stats[112].value;
-        const totalmatchesplayed = json.playerstats.stats[113].value;
+        const totalwins = json.playerstats.stats[125].value;
+        const totalmatchesplayed = json.playerstats.stats[126].value;
         const totalmatcheslost = totalmatchesplayed - totalwins;
         const winlossratio = totalwins / totalmatcheslost;
         
