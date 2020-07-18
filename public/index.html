@@ -12,6 +12,9 @@
                     <h1>CSGO-Stats Finder</h1>
                     <h4>Built by <a href="https://github.com/elijahmintzer/">Mintz#8233</a></h4>
                     <h2 style='color:red; display:none' id='error-message'>There is an error with your request.</h2>
+                    <input type='text' value='SteamID' id='steamidfield' maxlength="22">
+      
+                    <button id='submit' onclick='getStats()'>Submit</button>
 
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" alt="SteamAvatar" id="avatar" src="https://www.rebornevo.com/uploads/monthly_2019_05/Steam_Question-Mark.thumb.jpg.57b1f0d831926f6e19cd3dcc4d9cd89c.jpg">
@@ -36,9 +39,7 @@
                 
                     </div>
 
-                    <input type='text' value='SteamID' id='steamidfield' maxlength="22">
-      
-                    <button id='submit' onclick='getStats()'>Submit</button>
+
                 </div>
 
                 <div class="col-sm">
